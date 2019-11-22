@@ -1,4 +1,4 @@
-#Stockify
+# Stockify
 ## Description
 An easy to use website that tracks Dow components. Allows the user to navigate through financial news about Dow companies and look up quick data and stats. Using a charts and graphs library, users could see historical prices while also reading previous earnings reports from the company.
 ## Wireframes
