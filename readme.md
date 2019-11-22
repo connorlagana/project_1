@@ -6,6 +6,7 @@ An easy to use website that tracks Dow components. Allows the user to navigate t
 ## API
 Stock News Api: https://stocknewsapi.com
 Intrinio: https://intrinio.com
+I plan on taking financial news from the Stock News Api while also taking financial data from Intrinio
 ## Features
 #### Search For A Company
 Users will be able to search for a company and it will return a feed of companies (Example: searching 'C' will return "Caterpillar Inc, Chevron Corporation, Cisco Systems, The Coca-Cola Company)
