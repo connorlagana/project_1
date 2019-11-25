@@ -2,10 +2,53 @@ body {
   background-color: #94EBAB;
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 40px;
 }
 
 h1 {
   color: #545454;
   letter-spacing: 4px;
+  font-size: 40px;
+}
+
+div.scrollMenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollMenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollMenu a:hover {
+  background-color: #777;
+}
+
+img {
+  display: flex;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  border-radius: 22px;
+  padding: 10px;
+}
+
+h3 {
+  color: white;
+}
+
+.corp {
+  color: #777;
+  text-align: left;
+  /* font-weight: 10px; */
+}
+
+.otherData {
+  text-align: left;
 }
