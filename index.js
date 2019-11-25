@@ -4,8 +4,15 @@ window.onload = function () {
   const searchTicker = document.querySelector("#ticker")
 
 
-  searchButton.addEventListener("click", async function (evt) {
+  searchButton.addEventListener("click", function (evt) {
     evt.preventDefault()
+
+    retrieveAPIData()
+
+    addNews()
+  })
+
+  async function retrieveAPIData() {
     let ticker = `${searchTicker.value}`.toUpperCase()
 
     //STOCK INFO API
@@ -45,7 +52,10 @@ window.onload = function () {
     spanAdd.innerHTML = `Last Price: ${price}`
 
     document.querySelector("#results").appendChild(spanAdd)
+  }
 
-  })
+  function addNews() {
+
+  }
 }
 
