@@ -1,54 +1,134 @@
 body {
-  background-color: #94EBAB;
+  background-color: #98f3b1;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
   color: #545454;
-  letter-spacing: 4px;
-  font-size: 40px;
+  /* letter-spacing: 4px; */
+  font-weight: bolder;
+  font-size: 120px;
+  position: relative;
+  top: -100px;
+}
+#intro {
+  color: rgb(134, 134, 134);
+  font-weight: bold;
+  font-size: 24px;
+  position: relative;
+  top: -150px;
 }
 
-div.scrollMenu {
+#logo {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.search {
+  position: relative;
+  top: -136px;
+  height: 30px;
+  width: 150px;
+  border-radius: 22px;
+}
+
+.getStock {
+  position: relative;
+  top: -136px;
+  height: 30px;
+  width: 150px;
+  border-radius: 22px;
+}
+
+.scrollMenu {
   background-color: #333;
-  overflow: auto;
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  
+  /* overflow: auto;
+  white-space: nowrap;  */
+  .card {
+    display: inline-block;
+  }
 }
 
-div.scrollMenu a {
+/* div.scrollMenu a {
   display: inline-block;
   color: white;
   text-align: center;
   padding: 14px;
   text-decoration: none;
-}
+  width: 500px;
+  top: 0px;
+  bottom: 0px;
+} */
 
 div.scrollMenu a:hover {
   background-color: #777;
 }
 
-img {
+.imageNews {
   display: flex;
-  align-items: flex-start;
-  top: 0;
-  left: 0;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* top: 0; */
+  /* left: 0; */
   height: 200px;
-  width: 200px;
+  width: 300px;
   border-radius: 22px;
   padding: 10px;
 }
 
-h3 {
+#newsTitle {
+  /* text-align: right; */
+  /* margin-left: 220px; */
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  position: relative;
+  top: 0px;
   color: white;
+}
+#newsText {
+  /* text-align: right; */
+  /* margin-left: 220px; */
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  color: white;
+  position: relative;
 }
 
 .corp {
   color: #777;
   text-align: left;
-  /* font-weight: 10px; */
+  font-weight: bold;
 }
 
 .otherData {
   text-align: left;
+}
+
+.green {
+  color: rgb(45, 204, 45);
+}
+
+#data {
+  text-align: center;
+  margin: auto;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgb(93, 93, 93);
+  width: 420px;
+}
+
+.red {
+  color: rgb(167, 25, 25)
+}
+
+.container {
+  height: 200px;
+  width: 200px;
+  background-color: red;
 }
