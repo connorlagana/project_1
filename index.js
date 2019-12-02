@@ -7,15 +7,21 @@ window.onload = function () {
   searchButton.addEventListener("click", function (evt) {
     evt.preventDefault()
 
+
     retrieveFinance()
 
     addNews()
 
   })
 
+  function resetCSS() {
+    document.querySelectorAll("h3").removeChild()
+  }
+
 
   async function retrieveFinance() {
     let ticker = `${searchTicker.value}`.toUpperCase()
+
 
     //STOCK INFO API
     const apiKey = "OmQzMTBkZjhhNjRhOGM2OTI3MGI1MWUzNzE2ODJlMzY2"
@@ -79,6 +85,10 @@ window.onload = function () {
     document.querySelector("#results").appendChild(spanAdd)
     document.querySelector("#results").appendChild(priceDOM)
 
+    let dividendAdd = document.createElement('h3')
+    dividendAdd.innerHTML = `<h3 id = 'dividend'>Dividend Yield: ${forwardDiv}%`
+
+    document.querySelector('#results').appendChild(dividendAdd)
     //CHARTS AND STUFF
     var ctx = document.getElementById('chart').getContext('2d');
     let xlabels = []
@@ -90,7 +100,7 @@ window.onload = function () {
           label: `${ticker}`,
           data: pricesArray.reverse(),
           backgroundColor: [
-            'rgba(133, 99, 216, 0.2)'
+            'rgba(153, 70, 200, 0.4)'
           ],
           borderColor: [
             'rgba(133, 90, 116, 1)'
@@ -113,25 +123,48 @@ window.onload = function () {
   let newsArray = []
 
   async function addNews() {
+
+    var e = document.querySelector(".scrollMenu");
+    // e.remove()
+    if (e.childNodes.length > 3) {
+      for (let i = 0; i < 11; i++) {
+        // console.log(i + e.childNodes[i].innerHTML)
+        e.removeChild(e.childNodes[2])
+      }
+    }
+
+
+    newsArray = []
     let ticker = `${searchTicker.value}`.toUpperCase()
     //NEWS API
-    let newsUrl = `https://stocknewsapi.com/api/v1?tickers=${ticker}&items=50&token=s1cutgipfbodqpr16bpyjxe7sn1txudauuk4uian`
+    let newsUrl = `https://stocknewsapi.com/api/v1?tickers=${ticker}&items=10&token=s1cutgipfbodqpr16bpyjxe7sn1txudauuk4uian`
     let newsResp = await axios.get(newsUrl)
     newsArray = newsResp.data.data
 
+
+
+
+
+
+    // while (child) {
+    //   console.log("1" + child)
+    //   e.removeChild(child);
+    //   child = e.lastElementChild;
+    // }
+
     for (let i = 0; i < newsArray.length; i++) {
       let squareDiv = document.createElement("a")
-      squareDiv.innerHTML = `<div class='card'> <h2 id='newsTitle'>${newsArray[i].title}</h2> <img class='imageNews'src=${newsArray[i].image_url}> <h5 id='newsText'>${newsArray[i].text}</h6></div>`
-
+      squareDiv.innerHTML = `<div class='card'> <h2 id='newsTitle'>${newsArray[i].title}</h2> <img class='imageNews'src=${newsArray[i].image_url}> <h5 id='newsText'>${newsArray[i].text}</h6><h6 id='source'>Via ${newsArray[i].source_name}</h6></div>`
+      console.log(newsArray[i].image_url)
       let scrollMenu = document.querySelector(".scrollMenu")
       scrollMenu.appendChild(squareDiv)
 
+      //Adds clickable url
+      squareDiv.addEventListener("click", function () {
+        window.location.href = newsArray[i].news_url;
+      })
+
     }
-
-    //TODO: need source code for omdb to add event listener to container
-    //TODO: Different colors for different string values (Does this make sense lol)
-
-
 
   }
 }
